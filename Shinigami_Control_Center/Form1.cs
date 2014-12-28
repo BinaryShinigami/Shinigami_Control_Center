@@ -50,17 +50,19 @@ namespace Shinigami_Control_Center
         }
 
         private void modifyInnterTableForCameras() {
-            if ((numCams % maxCamsPerRow) > 0)
+            if (((numCams % maxCamsPerRow) > 0) && (numCams > maxCamsPerRow))
             {
                 tblInnerTable.RowCount++;
+                tblInnerTable.RowStyles.Add(new RowStyle(SizeType.Percent, 50.0f));
                 currentRow++;
                 currentCol = 0;
             }
             else
             {
-                if (tblInnerTable.ColumnCount < maxCamsPerRow)
+                if ((tblInnerTable.ColumnCount < maxCamsPerRow) && numCams > 1)
                 {
                     tblInnerTable.ColumnCount++;
+                    tblInnerTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50.0f));
                 }
                 currentCol++;
             }

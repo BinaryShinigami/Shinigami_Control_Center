@@ -27,6 +27,7 @@ namespace Shinigami_Security_Viewer.SSV
         public SSV_Camera(String cameraURL, String cameraUsername = "", String cameraPassword = "")
         {
             m_CameraPanel = new SSV_CameraPanel();
+            m_CameraPanel.Dock = DockStyle.Fill;
             //m_CameraPanel.AutoSize = true;
 
             m_CameraStream = new MJPEGStream(cameraURL);

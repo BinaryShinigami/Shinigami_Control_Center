@@ -69,25 +69,15 @@
             // tblInnerTable
             // 
             this.tblInnerTable.AutoSize = true;
+            this.tblInnerTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tblInnerTable.ColumnCount = 1;
-            this.tblInnerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblInnerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblInnerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblInnerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblInnerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblInnerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblInnerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblInnerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblInnerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblInnerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblInnerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblInnerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tblInnerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0f));
             this.tblInnerTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tblInnerTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
             this.tblInnerTable.Location = new System.Drawing.Point(3, 3);
             this.tblInnerTable.Name = "tblInnerTable";
             this.tblInnerTable.RowCount = 1;
-            this.tblInnerTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblInnerTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblInnerTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0f));
             this.tblInnerTable.Size = new System.Drawing.Size(727, 460);
             this.tblInnerTable.TabIndex = 0;
             // 
@@ -173,26 +163,26 @@
             // addCameraToolStripMenuItem
             // 
             this.addCameraToolStripMenuItem.Name = "addCameraToolStripMenuItem";
-            this.addCameraToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addCameraToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.addCameraToolStripMenuItem.Text = "&Add Camera";
             this.addCameraToolStripMenuItem.Click += new System.EventHandler(this.addCameraToolStripMenuItem_Click);
             // 
             // deleteCameraToolStripMenuItem
             // 
             this.deleteCameraToolStripMenuItem.Name = "deleteCameraToolStripMenuItem";
-            this.deleteCameraToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deleteCameraToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.deleteCameraToolStripMenuItem.Text = "&Delete Camera";
             // 
             // optionToolStripMenuItem
             // 
             this.optionToolStripMenuItem.Name = "optionToolStripMenuItem";
-            this.optionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.optionToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.optionToolStripMenuItem.Text = "&Option";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             // 
             // helpToolStripMenuItem
