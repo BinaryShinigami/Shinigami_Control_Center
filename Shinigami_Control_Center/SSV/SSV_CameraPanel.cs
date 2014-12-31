@@ -8,7 +8,7 @@ using System.Drawing;
 
 namespace Shinigami_Security_Viewer.SSV
 {
-    class SSV_CameraPanel : PictureBox
+    public class SSV_CameraPanel : PictureBox
     {
 
         public Bitmap m_Contents;

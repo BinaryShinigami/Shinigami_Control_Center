@@ -13,10 +13,6 @@ namespace Shinigami_Control_Center
     public partial class frmControlCenterMain : Form
     {
         private int numCams = 0;
-        private int maxCamsPerRow = 4;
-        private int currentRow = 0;
-        private int currentCol = 0;
-        private List<Shinigami_Security_Viewer.SSV.SSV_Camera> securityCameras = new List<Shinigami_Security_Viewer.SSV.SSV_Camera>();
 
         public frmControlCenterMain()
         {
@@ -42,7 +38,7 @@ namespace Shinigami_Control_Center
                 lblStatus.Text = "Camera Opened!";
                 numCams++;
                 tmpCamera.m_CameraId = numCams;
-                securityCameras.Add(tmpCamera);
+                //securityCameras.Add(tmpCamera);
                 createCameraViewerForm(tmpCamera);
                 
             }
@@ -54,13 +50,31 @@ namespace Shinigami_Control_Center
         private void createCameraViewerForm(Shinigami_Security_Viewer.SSV.SSV_Camera cameraObject)
         {
 
-            Form childForm = new Form();
+            CameraView childForm = new CameraView(cameraObject);
             childForm.MdiParent = this;
-            childForm.Text = cameraObject.m_CameraName;
 
-            childForm.Controls.Add(cameraObject.getCameraPanel());
+            childForm.FormClosing += new FormClosingEventHandler(closeCameraViewEvent);
 
             childForm.Show();
+
+        }
+
+        private void updateMDIWindowList()
+        {
+            ActivateMdiChild(null);
+            ActivateMdiChild(this.ActiveMdiChild);
+        }
+
+        private void closeCameraViewEvent(object source, FormClosingEventArgs eventArgs)
+        {
+            CameraView src = (CameraView) source;
+
+            if (src.m_Camera.m_RecordingStatus)
+            {
+                src.m_Camera.stopVideoOutput();
+            }
+
+            src.m_Camera.stopCameraCapture();
 
         }
 

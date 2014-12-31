@@ -12,7 +12,7 @@ using System.Threading;
 
 namespace Shinigami_Security_Viewer.SSV
 {
-    class SSV_Camera
+    public class SSV_Camera
     {
 
         private SSV_CameraPanel m_CameraPanel;
