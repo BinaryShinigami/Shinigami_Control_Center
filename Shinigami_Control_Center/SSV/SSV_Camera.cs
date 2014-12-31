@@ -23,11 +23,15 @@ namespace Shinigami_Security_Viewer.SSV
         private MJPEGStream m_CameraStream;
         private SSV_MPEGWriterThread m_WriterThread;
         private Thread m_Thread;
+        public int m_CameraId = 0;
+        public Boolean m_RecordingStatus = false;
+        public String m_CameraName = "";
 
         public SSV_Camera(String cameraURL, String cameraUsername = "", String cameraPassword = "")
         {
-            m_CameraPanel = new SSV_CameraPanel();
+            m_CameraPanel = new SSV_CameraPanel(this);
             m_CameraPanel.Dock = DockStyle.Fill;
+            m_CameraPanel.SizeMode = PictureBoxSizeMode.AutoSize;
             //m_CameraPanel.AutoSize = true;
 
             m_CameraStream = new MJPEGStream(cameraURL);
@@ -42,9 +46,17 @@ namespace Shinigami_Security_Viewer.SSV
 
         }
 
+        public void setCameraName(String name)
+        {
+            m_CameraName = name;
+        }
+
         private void cameraNewFrameEvent(object source, NewFrameEventArgs eventArgs)
         {
             this.m_LastFrame = new Bitmap(eventArgs.Frame, m_CameraPanel.Size);
+            Graphics g = Graphics.FromImage(m_LastFrame);
+            g.DrawString(m_CameraName, new Font("Times New Roman", 25), Brushes.White, new PointF(10, 10));
+            g.Flush();
             m_CameraPanel.setImage(m_LastFrame);
         }
 
@@ -72,6 +84,8 @@ namespace Shinigami_Security_Viewer.SSV
 
             m_CameraStream.NewFrame += new NewFrameEventHandler(storeFrameForFileEvent);
 
+            this.m_RecordingStatus = true;
+
         }
 
         private void storeFrameForFileEvent(object source, NewFrameEventArgs eventArgs)
@@ -81,7 +95,8 @@ namespace Shinigami_Security_Viewer.SSV
 
         public void stopVideoOutput()
         {
-            m_WriterThread.stopThread();   
+            m_WriterThread.stopThread();
+            this.m_RecordingStatus = false;
         }
 
     }

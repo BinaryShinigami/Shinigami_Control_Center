@@ -12,9 +12,10 @@ namespace Shinigami_Security_Viewer.SSV
     {
 
         public Bitmap m_Contents;
-        public SSV_CameraPanel() 
+        private SSV_Camera m_ParentClass;
+        public SSV_CameraPanel(SSV_Camera parent) 
         {
-            
+            m_ParentClass = parent;
         }
 
         public void setImage(Bitmap image)
@@ -31,6 +32,11 @@ namespace Shinigami_Security_Viewer.SSV
             {
                 eventArgs.Graphics.DrawImage(this.m_Contents, new Point(0, 0));
             }
+        }
+
+        protected override void OnClick(EventArgs e)
+        {
+            base.OnClick(e);
         }
     }
 }

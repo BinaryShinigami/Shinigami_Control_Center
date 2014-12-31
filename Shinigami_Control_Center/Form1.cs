@@ -29,43 +29,40 @@ namespace Shinigami_Control_Center
             DialogResult res = newCameraDialog.ShowDialog();
             if (res == DialogResult.OK)
             {
-                addCamera(newCameraDialog.m_URL, newCameraDialog.m_Username, newCameraDialog.m_Password);
+                addCamera(newCameraDialog.m_URL, newCameraDialog.m_Username, newCameraDialog.m_Password, newCameraDialog.m_CameraName);
             }
         }
 
-        private void addCamera(String url, String username, String password) {
+        private void addCamera(String url, String username, String password, String cameraName) {
             try {
                 Shinigami_Security_Viewer.SSV.SSV_Camera tmpCamera = new Shinigami_Security_Viewer.SSV.SSV_Camera(url, username, password);
+                tmpCamera.m_CameraName = cameraName;
                 lblStatus.Text = "Attempting to open Camera Stream";
                 tmpCamera.startCameraCapture();
                 lblStatus.Text = "Camera Opened!";
                 numCams++;
+                tmpCamera.m_CameraId = numCams;
                 securityCameras.Add(tmpCamera);
-                modifyInnterTableForCameras();
-                tblInnerTable.Controls.Add(securityCameras[(securityCameras.Count - 1)].getCameraPanel(), currentRow, currentCol-1);
+                createCameraViewerForm(tmpCamera);
+                
             }
             catch (Exception e) {
                 MessageBox.Show("Error! Unable to Add Camera: " + e.ToString());
             }
         }
 
-        private void modifyInnterTableForCameras() {
-            if (((numCams % maxCamsPerRow) > 0) && (numCams > maxCamsPerRow))
-            {
-                tblInnerTable.RowCount++;
-                tblInnerTable.RowStyles.Add(new RowStyle(SizeType.Percent, 50.0f));
-                currentRow++;
-                currentCol = 0;
-            }
-            else
-            {
-                if ((tblInnerTable.ColumnCount < maxCamsPerRow) && numCams > 1)
-                {
-                    tblInnerTable.ColumnCount++;
-                    tblInnerTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50.0f));
-                }
-                currentCol++;
-            }
+        private void createCameraViewerForm(Shinigami_Security_Viewer.SSV.SSV_Camera cameraObject)
+        {
+
+            Form childForm = new Form();
+            childForm.MdiParent = this;
+            childForm.Text = cameraObject.m_CameraName;
+
+            childForm.Controls.Add(cameraObject.getCameraPanel());
+
+            childForm.Show();
+
         }
+
     }
 }

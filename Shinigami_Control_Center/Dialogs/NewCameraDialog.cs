@@ -16,6 +16,7 @@ namespace Shinigami_Control_Center.Dialogs
         public String m_URL;
         public String m_Username;
         public String m_Password;
+        public String m_CameraName;
 
         public NewCameraDialog()
         {
@@ -27,6 +28,7 @@ namespace Shinigami_Control_Center.Dialogs
             m_URL = txtURL.Text;
             m_Username = txtUsername.Text;
             m_Password = txtPassword.Text;
+            m_CameraName = txtCameraName.Text;
 
         }
     }
