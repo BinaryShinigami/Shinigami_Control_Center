@@ -17,14 +17,14 @@ namespace Shinigami_Security_Viewer.SSV
         public Mutex m_Mutex;
         private Boolean m_ThreadRunning;
 
-        public SSV_MPEGWriterThread(String filename)
+        public SSV_MPEGWriterThread(String filename, int width, int height)
         {
             m_Frames = new List<Bitmap>();
             m_MpegWriter = new VideoFileWriter();
             m_Mutex = new Mutex();
             m_ThreadRunning = false;
 
-            m_MpegWriter.Open(filename, 1280, 720, 25, VideoCodec.MPEG4,(2500 * 1024)); //2500*1024 = 2500 Kbps which is about 19Mb per minute but should be good quality
+            m_MpegWriter.Open(filename, width, height, 25, VideoCodec.MPEG4,(2500 * 1024)); //2500*1024 = 2500 Kbps which is about 19Mb per minute but should be good quality
         }
 
         public void stopThread()

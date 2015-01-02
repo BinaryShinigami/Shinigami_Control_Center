@@ -17,6 +17,8 @@ namespace Shinigami_Control_Center
         //Options
         private Boolean m_AutoRecord = false;
         private String m_OutputPath = Environment.ExpandEnvironmentVariables("C:%HOMEPATH%\\");
+        private int m_VideoOutputWidth = 1280;
+        private int m_VideoOutputHeight = 720;
 
         public frmControlCenterMain()
         {
@@ -87,13 +89,16 @@ namespace Shinigami_Control_Center
 
         private void optionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Dialogs.OptionsDialog dlg = new Dialogs.OptionsDialog(m_OutputPath, m_AutoRecord);
+            Dialogs.OptionsDialog dlg = new Dialogs.OptionsDialog(m_OutputPath, m_AutoRecord, m_VideoOutputWidth, m_VideoOutputHeight);
             DialogResult res = dlg.ShowDialog();
 
             if (res == DialogResult.OK)
             {
                 m_OutputPath = dlg.m_OutputFolder;
                 m_AutoRecord = dlg.m_AutoRecord;
+
+                m_VideoOutputWidth = dlg.m_OutputVideoWidth;
+                m_VideoOutputHeight = dlg.m_OutputVideoHeight;
 
             }
         }
@@ -118,7 +123,7 @@ namespace Shinigami_Control_Center
         private void startRecordingCameraView(CameraView cv)
         {
             if (!cv.m_Camera.m_RecordingStatus) {
-                cv.m_Camera.startVideoOutput(this.m_OutputPath + cv.m_Camera.m_CameraName + ".avi");
+                cv.m_Camera.startVideoOutput(this.m_OutputPath + cv.m_Camera.m_CameraName + ".avi", m_VideoOutputWidth, m_VideoOutputHeight);
             }
         }
 
@@ -129,6 +134,24 @@ namespace Shinigami_Control_Center
                 cv.m_Camera.stopVideoOutput();
             }
         }
+
+        private void cascadeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LayoutMdi(MdiLayout.Cascade);
+        }
+
+        private void tileHorizontallyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LayoutMdi(MdiLayout.TileHorizontal);
+        }
+
+        private void tileVerticallyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LayoutMdi(MdiLayout.TileVertical);
+        }
+
+        
+
 
     }
 }

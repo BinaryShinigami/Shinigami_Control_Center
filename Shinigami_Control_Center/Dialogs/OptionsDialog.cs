@@ -15,8 +15,10 @@ namespace Shinigami_Control_Center.Dialogs
 
         public string m_OutputFolder;
         public Boolean m_AutoRecord;
+        public int m_OutputVideoWidth;
+        public int m_OutputVideoHeight;
 
-        public OptionsDialog(string outputFolder, Boolean autoRec)
+        public OptionsDialog(string outputFolder, Boolean autoRec, int videoWidth, int videoHeight)
         {
             InitializeComponent();
             
@@ -25,6 +27,11 @@ namespace Shinigami_Control_Center.Dialogs
 
             m_AutoRecord = autoRec;
             cbxAutoRecord.Checked = autoRec;
+
+            m_OutputVideoHeight = videoHeight;
+            m_OutputVideoWidth = videoWidth;
+            txtHeight.Text = m_OutputVideoHeight.ToString();
+            txtWidth.Text = m_OutputVideoWidth.ToString();
         }
 
         private void btnVideoBrowse_Click(object sender, EventArgs e)
@@ -47,6 +54,8 @@ namespace Shinigami_Control_Center.Dialogs
             m_OutputFolder = txtVideoFolder.Text + "\\";
             m_AutoRecord = cbxAutoRecord.Checked;
 
+            m_OutputVideoHeight = int.Parse(txtHeight.Text);
+            m_OutputVideoWidth = int.Parse(txtWidth.Text);
         }
     }
 }

@@ -37,11 +37,15 @@
             this.optionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.camerasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cameraControlsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startRecordingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stopRecordingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.arrangeCameraViewsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cascadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tileHorizontallyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tileVerticallyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -68,6 +72,7 @@
             this.fileToolStripMenuItem,
             this.camerasToolStripMenuItem,
             this.cameraControlsToolStripMenuItem,
+            this.arrangeCameraViewsToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.MdiWindowListItem = this.camerasToolStripMenuItem;
@@ -90,28 +95,28 @@
             // addCameraToolStripMenuItem
             // 
             this.addCameraToolStripMenuItem.Name = "addCameraToolStripMenuItem";
-            this.addCameraToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addCameraToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.addCameraToolStripMenuItem.Text = "&Add Camera";
             this.addCameraToolStripMenuItem.Click += new System.EventHandler(this.addCameraToolStripMenuItem_Click);
             // 
             // deleteCameraToolStripMenuItem
             // 
             this.deleteCameraToolStripMenuItem.Name = "deleteCameraToolStripMenuItem";
-            this.deleteCameraToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deleteCameraToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.deleteCameraToolStripMenuItem.Text = "&Close Camera";
             this.deleteCameraToolStripMenuItem.Click += new System.EventHandler(this.deleteCameraToolStripMenuItem_Click);
             // 
             // optionToolStripMenuItem
             // 
             this.optionToolStripMenuItem.Name = "optionToolStripMenuItem";
-            this.optionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.optionToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.optionToolStripMenuItem.Text = "&Options";
             this.optionToolStripMenuItem.Click += new System.EventHandler(this.optionToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             // 
             // camerasToolStripMenuItem
@@ -119,20 +124,6 @@
             this.camerasToolStripMenuItem.Name = "camerasToolStripMenuItem";
             this.camerasToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.camerasToolStripMenuItem.Text = "&Cameras";
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "&Help";
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.aboutToolStripMenuItem.Text = "&About";
             // 
             // cameraControlsToolStripMenuItem
             // 
@@ -156,6 +147,51 @@
             this.stopRecordingToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.stopRecordingToolStripMenuItem.Text = "St&op Recording";
             this.stopRecordingToolStripMenuItem.Click += new System.EventHandler(this.stopRecordingToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "&Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Text = "&About";
+            // 
+            // arrangeCameraViewsToolStripMenuItem
+            // 
+            this.arrangeCameraViewsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cascadeToolStripMenuItem,
+            this.tileHorizontallyToolStripMenuItem,
+            this.tileVerticallyToolStripMenuItem});
+            this.arrangeCameraViewsToolStripMenuItem.Name = "arrangeCameraViewsToolStripMenuItem";
+            this.arrangeCameraViewsToolStripMenuItem.Size = new System.Drawing.Size(138, 20);
+            this.arrangeCameraViewsToolStripMenuItem.Text = "&Arrange Camera Views";
+            // 
+            // cascadeToolStripMenuItem
+            // 
+            this.cascadeToolStripMenuItem.Name = "cascadeToolStripMenuItem";
+            this.cascadeToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.cascadeToolStripMenuItem.Text = "&Cascade";
+            this.cascadeToolStripMenuItem.Click += new System.EventHandler(this.cascadeToolStripMenuItem_Click);
+            // 
+            // tileHorizontallyToolStripMenuItem
+            // 
+            this.tileHorizontallyToolStripMenuItem.Name = "tileHorizontallyToolStripMenuItem";
+            this.tileHorizontallyToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.tileHorizontallyToolStripMenuItem.Text = "&Tile Horizontally";
+            this.tileHorizontallyToolStripMenuItem.Click += new System.EventHandler(this.tileHorizontallyToolStripMenuItem_Click);
+            // 
+            // tileVerticallyToolStripMenuItem
+            // 
+            this.tileVerticallyToolStripMenuItem.Name = "tileVerticallyToolStripMenuItem";
+            this.tileVerticallyToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.tileVerticallyToolStripMenuItem.Text = "&Tile Vertically";
+            this.tileVerticallyToolStripMenuItem.Click += new System.EventHandler(this.tileVerticallyToolStripMenuItem_Click);
             // 
             // frmControlCenterMain
             // 
@@ -194,6 +230,10 @@
         private System.Windows.Forms.ToolStripMenuItem cameraControlsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem startRecordingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stopRecordingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem arrangeCameraViewsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cascadeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tileHorizontallyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tileVerticallyToolStripMenuItem;
     }
 }
 

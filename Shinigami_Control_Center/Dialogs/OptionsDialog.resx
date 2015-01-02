@@ -120,4 +120,7 @@
   <metadata name="folderBrowserDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>NOTE: Recieved video frames will be scaled (either up or down) to this resolution. If you experience pixelation or problems with the saved video results, check your camera's video settings and ensure that the video is set to output at the desired resolution. All videos are saved at 25 Frames Per Second.</value>
+  </data>
 </root>
