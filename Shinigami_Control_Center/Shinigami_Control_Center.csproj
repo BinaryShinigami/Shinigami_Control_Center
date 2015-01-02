@@ -144,6 +144,12 @@
     <Compile Include="Dialogs\NewCameraDialog.Designer.cs">
       <DependentUpon>NewCameraDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\OptionsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\OptionsDialog.Designer.cs">
+      <DependentUpon>OptionsDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +165,9 @@
     <Compile Include="SSV\SSV_MPEGWriterThread.cs" />
     <EmbeddedResource Include="Dialogs\NewCameraDialog.resx">
       <DependentUpon>NewCameraDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\OptionsDialog.resx">
+      <DependentUpon>OptionsDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

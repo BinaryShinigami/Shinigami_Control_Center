@@ -26,6 +26,7 @@ namespace Shinigami_Security_Viewer.SSV
         public int m_CameraId = 0;
         public Boolean m_RecordingStatus = false;
         public String m_CameraName = "";
+        private NewFrameEventHandler outputhandler;
 
         public SSV_Camera(String cameraURL, String cameraUsername = "", String cameraPassword = "")
         {
@@ -82,7 +83,8 @@ namespace Shinigami_Security_Viewer.SSV
             m_Thread = new Thread(new ThreadStart(m_WriterThread.frameWriterThreadFunc));
             m_Thread.Start();
 
-            m_CameraStream.NewFrame += new NewFrameEventHandler(storeFrameForFileEvent);
+            outputhandler = new NewFrameEventHandler(storeFrameForFileEvent);
+            m_CameraStream.NewFrame += outputhandler;
 
             this.m_RecordingStatus = true;
 
@@ -97,6 +99,7 @@ namespace Shinigami_Security_Viewer.SSV
         {
             m_WriterThread.stopThread();
             this.m_RecordingStatus = false;
+            m_CameraStream.NewFrame -= outputhandler;
         }
 
     }

@@ -13,6 +13,10 @@ namespace Shinigami_Control_Center
     public partial class frmControlCenterMain : Form
     {
         private int numCams = 0;
+        
+        //Options
+        private Boolean m_AutoRecord = false;
+        private String m_OutputPath = Environment.ExpandEnvironmentVariables("C:%HOMEPATH%\\");
 
         public frmControlCenterMain()
         {
@@ -40,6 +44,7 @@ namespace Shinigami_Control_Center
                 tmpCamera.m_CameraId = numCams;
                 //securityCameras.Add(tmpCamera);
                 createCameraViewerForm(tmpCamera);
+
                 
             }
             catch (Exception e) {
@@ -57,6 +62,11 @@ namespace Shinigami_Control_Center
 
             childForm.Show();
 
+            if (m_AutoRecord)
+            {
+                startRecordingCameraView(childForm);
+            }
+
         }
 
         private void updateMDIWindowList()
@@ -69,13 +79,55 @@ namespace Shinigami_Control_Center
         {
             CameraView src = (CameraView) source;
 
-            if (src.m_Camera.m_RecordingStatus)
-            {
-                src.m_Camera.stopVideoOutput();
-            }
+            stopRecordingCameraView(src);
 
             src.m_Camera.stopCameraCapture();
 
+        }
+
+        private void optionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Dialogs.OptionsDialog dlg = new Dialogs.OptionsDialog(m_OutputPath, m_AutoRecord);
+            DialogResult res = dlg.ShowDialog();
+
+            if (res == DialogResult.OK)
+            {
+                m_OutputPath = dlg.m_OutputFolder;
+                m_AutoRecord = dlg.m_AutoRecord;
+
+            }
+        }
+
+        private void deleteCameraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CameraView activeChild = (CameraView)this.ActiveMdiChild;
+            activeChild.Close();
+            updateMDIWindowList();
+        }
+
+        private void startRecordingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            startRecordingCameraView((CameraView)this.ActiveMdiChild);
+        }
+
+        private void stopRecordingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            stopRecordingCameraView((CameraView)this.ActiveMdiChild);
+        }
+
+        private void startRecordingCameraView(CameraView cv)
+        {
+            if (!cv.m_Camera.m_RecordingStatus) {
+                cv.m_Camera.startVideoOutput(this.m_OutputPath + cv.m_Camera.m_CameraName + ".avi");
+            }
+        }
+
+        private void stopRecordingCameraView(CameraView cv)
+        {
+            if (cv.m_Camera.m_RecordingStatus)
+            {
+                cv.m_Camera.stopVideoOutput();
+            }
         }
 
     }

@@ -49,3 +49,4 @@ E:\Projects\Shinigami_Control_Center\Shinigami_Control_Center\obj\Debug\Shinigam
 E:\Projects\Shinigami_Control_Center\Shinigami_Control_Center\obj\Debug\Shinigami_Control_Center.exe
 E:\Projects\Shinigami_Control_Center\Shinigami_Control_Center\obj\Debug\Shinigami_Control_Center.pdb
 E:\Projects\Shinigami_Control_Center\Shinigami_Control_Center\obj\Debug\Shinigami_Control_Center.Dialogs.NewCameraDialog.resources
+E:\Projects\Shinigami_Control_Center\Shinigami_Control_Center\obj\Debug\Shinigami_Control_Center.Dialogs.OptionsDialog.resources

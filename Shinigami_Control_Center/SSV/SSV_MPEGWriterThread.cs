@@ -32,6 +32,7 @@ namespace Shinigami_Security_Viewer.SSV
             m_ThreadRunning = false;
             writeFrames();
             m_MpegWriter.Close();
+            m_MpegWriter.Dispose();
             clearFrames();
         }
 
